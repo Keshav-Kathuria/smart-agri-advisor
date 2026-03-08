@@ -26,5 +26,5 @@ smart-agriculture-platform/
 ├── fertilizer-recommend/ # Fertilizer recommendation model
 ├── weather-advisory/    # Weather-based advisory engine
 ├── api/                 # Backend API endpoints
-└── frontend/            # Web interface
+└── frontend/            # Web Interface
 ```
