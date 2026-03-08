@@ -1,6 +1,6 @@
 # 🌾 Smart Agriculture Advisory Platform
 
-An AI-driven platform providing real-time, personalized guidance to farmers 
+An AI-driven platform that provides real-time, personalized guidance to farmers 
 to optimize crop health, resource usage, and productivity.
 
 ## Modules
@@ -16,7 +16,7 @@ to optimize crop health, resource usage, and productivity.
 ## Tech Stack
 - **ML:** XGBoost, CNN, Scikit-learn, SHAP
 - **Backend:** FastAPI 
-- **Frontend:** Planned
+- **Frontend:** Planned 
 
 ## Project Structure
 ```
