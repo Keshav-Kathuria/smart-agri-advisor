@@ -15,7 +15,7 @@ to optimize crop health, resource usage, and productivity.
 
 ## Tech Stack
 - **ML:** XGBoost, CNN, Scikit-learn, SHAP
-- **Backend:** FastAPI (planned)
+- **Backend:** FastAPI 
 - **Frontend:** Planned
 
 ## Project Structure
