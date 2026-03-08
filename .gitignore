@@ -1,0 +1,20 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Data / generated files
+X_train.csv
+X_test.csv
+y_train.csv
+y_test.csv
+india_yield_preprocessed.csv
+model_comparison_results.csv
+
+# OS
+.DS_Store
+Thumbs.db
