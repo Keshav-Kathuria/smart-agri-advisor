@@ -18,3 +18,8 @@ model_comparison_results.csv
 # OS
 .DS_Store
 Thumbs.db
+
+# Disease Detection
+disease-detection/models/
+disease-detection/uploads/
+disease-detection/__pycache__/
