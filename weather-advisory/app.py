@@ -1,17 +1,23 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import requests
 from advisory import generate_advisory
 
 app = Flask(__name__)
+CORS(app)
 
-API_KEY = "b9f61841f7ead934a66d2ea6e51a4435"
+
+api_key = os.getenv("WEATHER_API_KEY")
 
 def get_weather(city):
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     return requests.get(url).json()
 
 def get_forecast(city):
-    url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={API_KEY}&units=metric"
+    url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
     return requests.get(url).json()
 
 @app.route("/")

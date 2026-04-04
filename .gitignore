@@ -23,3 +23,5 @@ Thumbs.db
 disease-detection/models/
 disease-detection/uploads/
 disease-detection/__pycache__/
+
+.env
