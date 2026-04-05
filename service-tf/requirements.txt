@@ -11,3 +11,6 @@ uvicorn==0.43.0
 fastapi
 joblib
 xgboost
+python-multipart
+aiofiles
+httpx
