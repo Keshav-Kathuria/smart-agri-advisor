@@ -29,4 +29,9 @@ weather_advisory/__pycache__/
 weather_advisory/.env
 fertilizer_recommend/.env
 
-.env
+
+*.env
+
+frontend/dist/
+frontend/node_modules/
+api/__pycache__/

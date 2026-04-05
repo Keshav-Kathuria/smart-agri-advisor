@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BarChart2, Lightbulb } from 'lucide-react';
 import {
   ModulePanel, ModuleHeader, FormGroup, SelectInput,
   NumberInput, Button, Divider, SectionLabel,
@@ -6,8 +7,7 @@ import {
 } from '../components/UI.jsx';
 
 // Central API config as requested
-const API_BASE = 'http://127.0.0.1:8000';
-const CROP_CATEGORY_MAP = {
+const API_BASE = 'http://127.0.0.1:8000';const CROP_CATEGORY_MAP = {
   "Wheat": "Cereal",
   "Rice": "Cereal",
   "Maize (corn)": "Cereal",
@@ -121,7 +121,7 @@ export default function YieldPage() {
   useEffect(() => {
     async function fetchOptions() {
       try {
-        const res = await fetch(`${API_BASE}/crops`);
+        const res = await fetch(`${API_BASE}/yield/crops`);
         const data = await res.json();
 
         setOptions({
@@ -173,7 +173,7 @@ export default function YieldPage() {
 
     try {
       // REAL API CALL
-      const response = await fetch(`${API_BASE}/predict/yield`, {
+      const response = await fetch(`${API_BASE}/yield/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -203,13 +203,7 @@ export default function YieldPage() {
   }
 
   return (
-    <div className="hp-hero" style={{ padding: '6rem 2rem', alignItems: 'flex-start', minHeight: '100vh' }}>
-      {/* Background Elements to match HomePage */}
-      <div className="hp-orb hp-orb--1" />
-      <div className="hp-orb hp-orb--2" />
-      <div className="hp-orb hp-orb--3" />
-      <div className="hp-grid-overlay" />
-
+    <div className="module-page">
       <div style={{ maxWidth: '1000px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 10 }}>
         <ModulePanel>
         <ModuleHeader
@@ -249,7 +243,7 @@ export default function YieldPage() {
           </div>
 
           <div style={{ display: 'flex', gap: 10, marginTop: '2rem' }}>
-            <Button onClick={handleSubmit}>📊 Predict Yield</Button>
+            <Button onClick={handleSubmit} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><BarChart2 size={18} /> Predict Yield</Button>
             <Button variant="secondary" onClick={handleReset}>Reset</Button>
           </div>
 
@@ -317,13 +311,13 @@ function YieldResult({ data }) {
 
       {/* Explanation */}
       <div style={{ marginBottom: '2rem' }}>
-        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.5rem', color: '#fff' }}>💡 Explanation</h4>
+        <h4 style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.5rem', color: '#fff' }}><Lightbulb size={18} /> Explanation</h4>
         <p className="result-body">{explanation}</p>
       </div>
 
       {/* Top Factors */}
       <div>
-        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '1rem', color: '#fff' }}>📊 Top Factors driving this prediction</h4>
+        <h4 style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.95rem', fontWeight: 700, marginBottom: '1rem', color: '#fff' }}><BarChart2 size={18} /> Top Factors driving this prediction</h4>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {top_factors.map((f, i) => {
             const isUp = f.direction === 'up';
@@ -358,4 +352,3 @@ function YieldResult({ data }) {
     </div>
   );
 }
-
