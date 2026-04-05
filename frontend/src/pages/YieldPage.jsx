@@ -7,7 +7,8 @@ import {
 } from '../components/UI.jsx';
 
 // Central API config as requested
-const API_BASE = 'http://127.0.0.1:8000';const CROP_CATEGORY_MAP = {
+import { API_URLS } from '../util/constants';
+const CROP_CATEGORY_MAP = {
   "Wheat": "Cereal",
   "Rice": "Cereal",
   "Maize (corn)": "Cereal",
@@ -121,7 +122,7 @@ export default function YieldPage() {
   useEffect(() => {
     async function fetchOptions() {
       try {
-        const res = await fetch(`${API_BASE}/yield/crops`);
+        const res = await fetch(`${API_URLS.yield.replace('/predict', '/crops')}`);
         const data = await res.json();
 
         setOptions({
@@ -173,8 +174,8 @@ export default function YieldPage() {
 
     try {
       // REAL API CALL
-      const response = await fetch(`${API_BASE}/yield/predict`, {
-        method: 'POST',
+      const response = await fetch(API_URLS.yield, {
+      method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });

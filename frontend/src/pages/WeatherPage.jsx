@@ -4,9 +4,7 @@ import {
   ModulePanel, ModuleHeader, FormGroup, SelectInput,
   TextInput, Button, Divider, Spinner, ErrorCard
 } from '../components/UI.jsx';
-import { CROPS_COMMON } from '../utils/constants.js';
-
-const API_BASE = 'http://127.0.0.1:8000'; // Unified FastAPI backend
+import { CROPS_COMMON, API_URLS } from '../util/constants.js';
 
 const INITIAL_FORM = {
   city: '',
@@ -35,8 +33,8 @@ export default function WeatherPage() {
     setStatus('loading');
 
     try {
-      const response = await fetch(`${API_BASE}/weather/advisory`, {
-        method: 'POST',
+      const response = await fetch(API_URLS.weather, {
+      method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
       });

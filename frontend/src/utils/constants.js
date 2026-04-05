@@ -1,10 +1,10 @@
-// ── Swap these with your real backend URLs ──
 export const API_URLS = {
-  fertilizer: 'https://YOUR_BACKEND_URL/api/fertilizer/recommend',
-  yield:      'https://YOUR_BACKEND_URL/api/yield/predict',
-  // Coming soon — not yet wired up:
-  disease:    'https://YOUR_BACKEND_URL/api/disease/predict',
-  weather:    'https://YOUR_BACKEND_URL/api/weather/advice',
+  disease:          'https://service-torch.onrender.com/disease/predict',
+  fertilizer:       'https://service-tf.onrender.com/fertilizer/predict',
+  fertilizerOptions:'https://service-tf.onrender.com/fertilizer/options',
+  soil:             'https://service-tf.onrender.com/fertilizer/predict-soil',
+  yield:            'https://service-tf.onrender.com/yield/predict',
+  weather:          'https://service-tf.onrender.com/weather/advisory',
 };
 
 export const CROPS_COMMON = [

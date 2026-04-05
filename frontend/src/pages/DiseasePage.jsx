@@ -4,7 +4,8 @@ import {
 } from '../components/UI.jsx';
 import { Camera, Search, Brain, Pin, Leaf, AlertTriangle, BarChart2, ClipboardList, Wrench, Pill, ShoppingCart, Zap } from 'lucide-react';
 
-const API_BASE = 'http://127.0.0.1:8000';
+import { API_URLS } from '../util/constants';
+
 
 const STATUS = {
   IDLE: 'idle',
@@ -57,7 +58,7 @@ export default function DiseasePage() {
     formData.append('image', file);
 
     try {
-      const res  = await fetch(`${API_BASE}/disease/predict`, { method: 'POST', body: formData });
+      const res = await fetch(API_URLS.disease, { method: 'POST', body: formData });
       const data = await res.json();
 
       if (!res.ok) {

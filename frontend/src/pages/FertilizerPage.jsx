@@ -6,7 +6,8 @@ import {
   Spinner, ErrorCard,
 } from '../components/UI.jsx';
 
-const API_BASE_FERTILIZER = 'http://127.0.0.1:8000';
+import { API_URLS } from '../util/constants';
+
 
 const INITIAL = {
   Temperature: '',
@@ -35,7 +36,7 @@ export default function FertilizerPage() {
   useEffect(() => {
     async function fetchOptions() {
       try {
-        const res  = await fetch(`${API_BASE_FERTILIZER}/fertilizer/options`);
+        const res = await fetch(`${API_URLS.fertilizer.replace('/predict', '/options')}`);
         const data = await res.json();
         setOptions({ soil_types: data.soil_types, crop_types: data.crop_types });
       } catch (err) {
@@ -83,7 +84,7 @@ export default function FertilizerPage() {
       const fd = new FormData();
       fd.append('file', soilImage);
 
-      const res  = await fetch(`${API_BASE_FERTILIZER}/fertilizer/predict-soil`, { method: 'POST', body: fd });
+      const res = await fetch(API_URLS.soil, { method: 'POST', body: fd });
       const data = await res.json();
 
       if (!res.ok) {
@@ -128,8 +129,8 @@ export default function FertilizerPage() {
 
     setStatus('loading');
     try {
-      const res  = await fetch(`${API_BASE_FERTILIZER}/fertilizer/predict`, {
-        method  : 'POST',
+      const res = await fetch(API_URLS.fertilizer, {
+      method  : 'POST',
         headers : { 'Content-Type': 'application/json' },
         body    : JSON.stringify(payload),
       });
