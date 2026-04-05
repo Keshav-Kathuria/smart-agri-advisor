@@ -338,7 +338,6 @@ export default function DiseasePage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 style={{
-                                  display: 'inline-block', background: 'rgba(232,160,32,0.2)',
                                   border: '1px solid rgba(232,160,32,0.4)',
                                   color: '#e8c060', padding: '5px 12px', borderRadius: '8px',
                                   textDecoration: 'none', fontSize: '0.78rem', fontWeight: 600,
