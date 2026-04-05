@@ -20,8 +20,13 @@ model_comparison_results.csv
 Thumbs.db
 
 # Disease Detection
-disease-detection/models/
-disease-detection/uploads/
-disease-detection/__pycache__/
+disease_detection/models/
+disease_detection/uploads/
+disease_detection/__pycache__/
+
+fertilizer_recommend/__pycache__/
+weather_advisory/__pycache__/
+weather_advisory/.env
+fertilizer_recommend/.env
 
 .env
