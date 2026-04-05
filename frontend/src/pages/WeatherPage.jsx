@@ -4,7 +4,7 @@ import {
   ModulePanel, ModuleHeader, FormGroup, SelectInput,
   TextInput, Button, Divider, Spinner, ErrorCard
 } from '../components/UI.jsx';
-import { CROPS_COMMON, API_URLS } from '../util/constants.js';
+import { CROPS_COMMON, API_URLS } from '../utils/constants.js';
 
 const INITIAL_FORM = {
   city: '',

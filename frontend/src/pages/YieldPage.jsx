@@ -7,7 +7,7 @@ import {
 } from '../components/UI.jsx';
 
 // Central API config as requested
-import { API_URLS } from '../util/constants';
+import { API_URLS } from '../utils/constants';
 const CROP_CATEGORY_MAP = {
   "Wheat": "Cereal",
   "Rice": "Cereal",

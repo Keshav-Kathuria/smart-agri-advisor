@@ -6,7 +6,7 @@ import {
   Spinner, ErrorCard,
 } from '../components/UI.jsx';
 
-import { API_URLS } from '../util/constants';
+import { API_URLS } from '../utils/constants';
 
 
 const INITIAL = {

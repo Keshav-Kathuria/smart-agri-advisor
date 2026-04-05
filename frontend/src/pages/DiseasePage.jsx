@@ -4,7 +4,7 @@ import {
 } from '../components/UI.jsx';
 import { Camera, Search, Brain, Pin, Leaf, AlertTriangle, BarChart2, ClipboardList, Wrench, Pill, ShoppingCart, Zap } from 'lucide-react';
 
-import { API_URLS } from '../util/constants';
+import { API_URLS } from '../utils/constants';
 
 
 const STATUS = {
