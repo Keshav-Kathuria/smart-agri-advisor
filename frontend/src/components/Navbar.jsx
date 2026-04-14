@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const TABS = [
   { id: 'home',       label: 'Dashboard', icon: '⬡' },
-  { id: 'fertilizer', label: 'Fertilizer',icon: '🧪' },
-  { id: 'yield',      label: 'Yield',     icon: '📊' },
-  { id: 'disease',    label: 'Disease',   icon: '🔬' },
-  { id: 'weather',    label: 'Weather',   icon: '☁️' },
+  { id: 'fertilizer', label: 'Fertilizer Advisory', icon: '▸' },
+  { id: 'yield',      label: 'Yield Prediction',      icon: '▸' },
+  { id: 'disease',    label: 'Disease Detection',    icon: '▸' },
+  { id: 'weather',    label: 'Weather Advisory',    icon: '▸' },
 ];
 
 export default function Navbar({ activeTab, onTabChange }) {
+  useEffect(() => {
+    if (!document.getElementById('google-translate-script')) {
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,ml,pa,or,as,mai,kok,sd,ne,sa',
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          'google_translate_element'
+        );
+      };
+
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   function handleTab(id) {
     onTabChange(id);
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -30,13 +52,9 @@ export default function Navbar({ activeTab, onTabChange }) {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="sidebar__divider" />
-
-      {/* Navigation label */}
       <div className="sidebar__section-label">Navigation</div>
 
-      {/* Nav items */}
       <nav className="sidebar__nav">
         {TABS.map(tab => (
           <button
@@ -51,9 +69,15 @@ export default function Navbar({ activeTab, onTabChange }) {
         ))}
       </nav>
 
-      {/* Bottom section */}
+      {/* Bottom */}
       <div className="sidebar__bottom">
         <div className="sidebar__divider" />
+
+        <div className="sidebar__section-label">Translate</div>
+        <div id="google_translate_element" />
+
+        <div className="sidebar__divider" />
+
         <div className="sidebar__info">
           <div className="sidebar__info-dot" />
           <div>
